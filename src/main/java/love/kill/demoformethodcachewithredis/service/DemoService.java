@@ -1,5 +1,8 @@
 package love.kill.demoformethodcachewithredis.service;
 
+import love.kill.demoformethodcachewithredis.domain.DemoDTO;
+import love.kill.methodcache.annotation.CacheData;
+
 /**
  *
  *
@@ -7,8 +10,9 @@ package love.kill.demoformethodcachewithredis.service;
  */
 public interface DemoService {
 
-	String getDataWithoutMethodCache();
+	String getDataWithoutMethodCache(String key, DemoDTO demoDTO);
 
-	String getDataWithMethodCache();
+	@CacheData(id = "getDataWithMethodCache", refresh = false, remark = "从缓存获取数据例子")
+	String getDataWithMethodCache(String key, DemoDTO demoDTO);
 
 }

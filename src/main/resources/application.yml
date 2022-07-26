@@ -3,9 +3,12 @@ server:
 
 spring:
   redis:
-    host: xxx.xxx.xxx.xxx
-    port: 6379
-    password: xxxxxx
+    database: 1
+    host: 127.0.0.1
+    port: 6378
+
+  aop:
+    proxy-target-class: true
 
 # 方法缓存
 methodcache:
@@ -13,5 +16,5 @@ methodcache:
   enable: true
   # 输出日志(info级别)。true：开启，false：关闭，默认false
   enable-log: true
-  # 缓存方式。(M)emory：内存，(R)edis：redis方式，默认M
+  # 缓存方式。(M)emory：内存，(R)edis：redis，默认M
   cache-type: R
