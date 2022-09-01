@@ -10,9 +10,26 @@ import love.kill.methodcache.annotation.CacheData;
  */
 public interface DemoService {
 
-	String getDataWithoutMethodCache(String key, DemoDTO demoDTO);
+	/**
+	 * 无缓存请求
+	 * */
+	DemoDTO getWithoutCache(DemoDTO demoDTO);
 
-	@CacheData(id = "getDataWithMethodCache", refresh = false, remark = "从缓存获取数据例子")
-	String getDataWithMethodCache(String key, DemoDTO demoDTO);
+	/**
+	 * 带缓存的请求1
+	 * */
+	@CacheData(id = "getWithCache1", refresh = false, remark = "从缓存获取数据例子_1")
+	DemoDTO getWithCache1(DemoDTO demoDTO);
 
+	/**
+	 * 带缓存的请求2
+	 * */
+	@CacheData(id = "getWithCache2", refresh = false, remark = "从缓存获取数据例子_2")
+	DemoDTO getWithCache2(DemoDTO demoDTO);
+
+	/**
+	 * 带缓存的请求3
+	 * */
+	@CacheData(id = "getWithCache3", refresh = false, remark = "从缓存获取数据例子_3")
+	int getWithCache3(DemoDTO demoDTO);
 }

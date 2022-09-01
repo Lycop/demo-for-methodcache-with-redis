@@ -13,22 +13,35 @@ import org.springframework.stereotype.Service;
 public class DemoServiceImpl implements DemoService {
 
 	@Override
-	public String getDataWithoutMethodCache(String key, DemoDTO demoDTO) {
-		return doGetData(key,demoDTO);
+	public DemoDTO getWithoutCache(DemoDTO demoDTO) {
+		return doGetData(demoDTO, 1000);
 	}
 
 	@Override
-	public String getDataWithMethodCache(String key, DemoDTO demoDTO) {
-		return doGetData(key,demoDTO);
+	public DemoDTO getWithCache1(DemoDTO demoDTO) {
+		return doGetData(demoDTO, 1000);
 	}
 
-	private String doGetData(String key, DemoDTO demoDTO){
+	@Override
+	public DemoDTO getWithCache2(DemoDTO demoDTO) {
+		return doGetData(demoDTO, 500);
+	}
+
+	@Override
+	public int getWithCache3(DemoDTO demoDTO) {
+		DemoDTO resultDTO = doGetData(demoDTO, 500);
+		return resultDTO.getKey().hashCode() + resultDTO.getVal().hashCode();
+	}
+
+	private DemoDTO doGetData(DemoDTO demoDTO, int sleep){
 		try {
 			// 模拟耗时的业务处理
-			Thread.sleep(1000);
+			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		return "hello world!key=" + key + ";demo=" + demoDTO;
+		demoDTO.setResponse("hello world! key=" + demoDTO.getKey() + ", val=" + demoDTO.getVal());
+		return demoDTO;
 	}
+
 }

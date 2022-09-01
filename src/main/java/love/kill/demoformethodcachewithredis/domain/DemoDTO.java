@@ -1,13 +1,19 @@
 package love.kill.demoformethodcachewithredis.domain;
 
+import java.io.Serializable;
+
 /**
  * DemoDTO
  *
  * @author Lycop
  */
-public class DemoDTO {
+public class DemoDTO/* implements Serializable */{
+
+//	private static final long serialVersionUID = 1L;
+
 	String key;
 	String val;
+	String response;
 
 	public String getKey() {
 		return key;
@@ -25,11 +31,20 @@ public class DemoDTO {
 		this.val = val;
 	}
 
+	public String getResponse() {
+		return response;
+	}
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
+
 	@Override
 	public String toString() {
 		return "DemoDTO{" +
 				"key='" + key + '\'' +
 				", val='" + val + '\'' +
+				", response='" + response + '\'' +
 				'}';
 	}
 }
