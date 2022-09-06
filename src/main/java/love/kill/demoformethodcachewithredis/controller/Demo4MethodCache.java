@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * 缓存demo(Redis方式)
+ * 缓存demo
  *
  * @author Lycop
  */
