@@ -33,6 +33,9 @@ public class DemoServiceImpl implements DemoService {
 		return resultDTO.getKey().hashCode() + resultDTO.getVal().hashCode();
 	}
 
+	/**
+	 * 业务请求
+	 */
 	private DemoDTO doGetData(DemoDTO demoDTO, int sleep){
 		try {
 			// 模拟耗时的业务处理
