@@ -22,6 +22,9 @@ public class Demo4MethodCache {
 	@Autowired
 	private DemoService demoService;
 
+	/**
+	 * 普通方式(1000毫秒)
+	 */
 	@GetMapping("/withoutmethodcache")
 	public String withoutMethodCache(@RequestParam(value = "key", required = false) String key, @RequestParam(value = "val", required = false) String val) {
 		long start = new Date().getTime();
@@ -32,7 +35,9 @@ public class Demo4MethodCache {
 		return demoService.getWithoutCache(demoDTO).getResponse() + "（耗时：" + (new Date().getTime() - start + "毫秒）");
 	}
 
-
+	/**
+	 * 缓存方式1(1000毫秒)
+	 */
 	@GetMapping("/withmethodcache_1")
 	public String getWithMethodCache1(@RequestParam(value = "key", required = false) String key, @RequestParam(value = "val", required = false) String val) {
 		long start = new Date().getTime();
@@ -43,6 +48,9 @@ public class Demo4MethodCache {
 		return demoService.getWithCache1(demoDTO).getResponse() + "。（耗时：" + (new Date().getTime() - start + "毫秒）");
 	}
 
+	/**
+	 * 缓存方式2(500毫秒)
+	 */
 	@GetMapping("/withmethodcache_2")
 	public String getWithMethodCache2(@RequestParam(value = "key", required = false) String key, @RequestParam(value = "val", required = false) String val) {
 		long start = new Date().getTime();
@@ -53,6 +61,9 @@ public class Demo4MethodCache {
 		return demoService.getWithCache2(demoDTO).getResponse() + "(耗时：" + (new Date().getTime() - start + "毫秒)");
 	}
 
+	/**
+	 * 缓存方式3(500毫秒)
+	 */
 	@GetMapping("/withmethodcache_3")
 	public String getWithMethodCache3(@RequestParam(value = "key", required = false) String key, @RequestParam(value = "val", required = false) String val) {
 		long start = new Date().getTime();

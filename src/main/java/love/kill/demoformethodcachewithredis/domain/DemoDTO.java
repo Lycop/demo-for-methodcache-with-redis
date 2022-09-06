@@ -7,13 +7,13 @@ import java.io.Serializable;
  *
  * @author Lycop
  */
-public class DemoDTO/* implements Serializable */{
+public class DemoDTO implements Serializable {
 
-//	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-	String key;
-	String val;
-	String response;
+	private String key;
+	private String val;
+	private String response;
 
 	public String getKey() {
 		return key;
