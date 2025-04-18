@@ -16,7 +16,7 @@ methodcache:
   # 输出日志(info级别)。true：开启，false：关闭，默认false
   enable-log: true
   # 缓存方式。(M)emory：内存，(R)edis：redis，默认M
-  cache-type: M
+  cache-type: R
   # Redis 配置(缓存方式 cache-type 为 R 时生效)
   redis:
     database: 1
